@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:website/screen/dash/controller/dashcontroller.dart';
+import 'package:website/screen/dash/widgets/contact.dart';
 import 'package:website/screen/dash/widgets/home.dart';
 
 import '../widgets/aboutme.dart';
 import '../widgets/header.dart';
+import '../widgets/protfolio.dart';
+import '../widgets/services.dart';
 
 class Dash extends StatefulWidget {
   const Dash({Key? key}) : super(key: key);
@@ -14,13 +17,8 @@ class Dash extends StatefulWidget {
   @override
   State<Dash> createState() => _DashState();
 }
-
 class _DashState extends State<Dash> {
-
   DashController dashController = Get.put(DashController());
-
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -29,7 +27,6 @@ class _DashState extends State<Dash> {
         backgroundColor: Colors.white,
         body: Stack(
           children: [
-
             SingleChildScrollView(
               child: Container(
                 alignment: Alignment.center,
@@ -37,13 +34,14 @@ class _DashState extends State<Dash> {
                   children: [
                     Home(key: dashController.homeKey),
                     AboutMe(key: dashController.aboutKey),
-
+                    Services(key: dashController.servicesKey,),
+                    Protfolio(key: dashController.portfolioKey,),
+                    Contact(key: dashController.contactKey,),
                   ],
                 ),
               ),
             ),
             Header(),
-
           ],
         )
       ),

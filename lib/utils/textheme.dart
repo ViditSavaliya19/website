@@ -16,3 +16,13 @@ TextStyle titleTextStyle(Color color, double size) {
     ),
   );
 }
+TextStyle simpleTextStyle(Color color, double size) {
+  return GoogleFonts.poppins(
+    textStyle: TextStyle(
+      fontSize: size,
+      color: color,
+      overflow: TextOverflow.clip,
+
+    ),
+  );
+}

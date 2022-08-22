@@ -12,7 +12,6 @@ class Header extends StatelessWidget {
   DashController dashController = Get.put(DashController());
   HeaderController headerController = Get.put(HeaderController());
 
-  List l1 =["Home","About","Contact","Services","Services"];
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class Header extends StatelessWidget {
             width: 150,
             child: Image.network(
                 "https://upload.wikimedia.org/wikipedia/commons/9/97/Mobile_Apps_Development_Company_Logo_-_Codeexceptional.png"),
-                // "https://upload.wikimedia.org/wikipedia/commons/1/13/Wattpad_logo.png"),
+                // "https://uplo  ad.wikimedia.org/wikipedia/commons/1/13/Wattpad_logo.png"),
           ),
           SizedBox(
             width: 600,
@@ -61,7 +60,7 @@ class Header extends StatelessWidget {
                   child: Obx(
                     () => GestureDetector(
                       onTap: (){
-                        dashController.scrollBasedOnHeader(l1[index]);
+                        dashController.scrollBasedOnHeader(headerController.headerTitle[index]);
                       },
                       child: Container(
                         height: 60,
@@ -99,7 +98,7 @@ class Header extends StatelessWidget {
 class HeaderController extends GetxController {
   RxBool isHover = false.obs;
   RxList hoverList = [false, false, false, false, false].obs;
-  List headerTitle = ["Home", "Product", "Price", "Portfolio", "About Us"];
+  List headerTitle = ["Home", "About Us","Services", "Portfolio","Contact"];
 
   void addData(int index, bool hover) {
     hoverList[index] = hover;

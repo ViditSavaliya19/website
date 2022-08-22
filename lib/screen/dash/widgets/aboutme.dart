@@ -28,12 +28,52 @@ class AboutMe extends StatelessWidget {
               ),
               H(20),
               SizedBox(
-                width: MediaQuery.of(context).size.width*0.3,
+                width: MediaQuery.of(context).size.width * 0.3,
                 child: Text(
                   aboutme_txt,
-                  style: titleTextStyle(Colors.black38  , 18),
+                  style: simpleTextStyle(Colors.black38, 15),
                 ),
-              )
+              ),
+              H(30),
+              Text(
+                "Technology I have worked with",
+                style: simpleTextStyle(Colors.black, 18),
+              ),
+              H(20),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          FlutterLogo(),
+                          Text(
+                            "Flutter",
+                            style: simpleTextStyle(Colors.black, 15),
+                          )
+                        ],
+                      ),
+                      height: 35,
+                      width: 100,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Colors.grey.shade200),
+                    ),
+                    W(10),
+                    techLable("assets/images/android_icon.png","Android"),
+                    W(10),
+                    techLable("assets/images/java.png","Java"),
+                    W(10),
+                    techLable("assets/images/kotlin_icon.png","Kotlin"),
+                    W(10),
+                    techLable("assets/images/dart_icon.png","Dart"),
+                  ],
+                ),
+              ),
             ],
           ),
           W(MediaQuery.of(context).size.width * 0.1),
@@ -41,7 +81,8 @@ class AboutMe extends StatelessWidget {
             height: 500,
             width: 500,
             child: Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50)),
               elevation: 10,
               shadowColor: Colors.blue.shade300,
               child: CircleAvatar(
@@ -53,6 +94,31 @@ class AboutMe extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget techLable(String path,String name) {
+    return Container(
+      padding: EdgeInsets.all(5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+              height: 35,
+              width: 35,
+              child: Image.asset("$path")),
+          W(10),
+          Text(
+            "$name",
+            style: simpleTextStyle(Colors.black, 15),
+          )
+        ],
+      ),
+      height: 35,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5), color: Colors.grey.shade200),
     );
   }
 }
